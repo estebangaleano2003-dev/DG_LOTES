@@ -12,7 +12,7 @@ var json_FRACCIONcopiar_4 = {
       "type": "Feature",
       "properties": {
         "FRACCION": "1",
-        "FRACCIONES_Código - Nombre de Fracción": "1 - EDELIO"
+        "FRACCIONES_Código - Nombre de Fracción": "1 - COSTA LINDA"
       },
       "geometry": {
         "type": "Point",
