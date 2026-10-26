@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mapa Interactivo de Loteamiento — 1 - EDELIO</title>
+  <title>Mapa Interactivo de Loteamiento — 1 - COSTA LINDA</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -273,12 +273,12 @@
   <!-- Barra de Búsqueda Superior (también colapsable) -->
   <div class="top-bar" id="topBar">
     <div class="top-bar-header" id="topBarToggle" title="Clic para mostrar/ocultar buscador">
-      <span class="brand-title">📍 FRACCIÓN 1 - EDELIO</span>
+      <span class="brand-title">📍 FRACCIÓN 1 - COSTA LINDA</span>
       <button class="toggle-btn-small" id="topBarIcon">▲ Ocultar</button>
     </div>
     <div class="top-bar-body">
       <input type="text" id="searchInput" class="search-input" list="searchSuggestions"
-             placeholder="Buscar Fracción (1 - EDELIO), Mz o ID (ej: 1-1-15)..." />
+             placeholder="Buscar Fracción (1 - COSTA LINDA), Mz o ID (ej: 1-1-15)..." />
       <datalist id="searchSuggestions"></datalist>
       <button class="btn" id="btnSearch">Buscar</button>
       <select id="filterEstado" class="filter-select">
@@ -318,7 +318,7 @@
       <div class="layers-divider"></div>
       <div class="layers-section-title">Capas del Loteamiento</div>
       <label class="layer-option">
-        <input type="checkbox" id="chkGeneral" checked /> Polígono General (1 - EDELIO)
+        <input type="checkbox" id="chkGeneral" checked /> Polígono General (1 - COSTA LINDA)
       </label>
       <label class="layer-option">
         <input type="checkbox" id="chkPunto" checked /> Nombre y Código de Fracción
@@ -431,14 +431,14 @@
         fillOpacity: 0.04
       },
       onEachFeature: function(feature, layer) {
-        var nombre = feature.properties['FRACCIONES_Código - Nombre de Fracción'] || '1 - EDELIO';
+        var nombre = feature.properties['FRACCIONES_Código - Nombre de Fracción'] || '1 - COSTA LINDA';
         layer.bindPopup(
           '<div class="popup-header">' + nombre + '</div>' +
           '<table class="popup-table">' +
           '<tr><th>Lugar</th><td>Costa Guazú (Costa Linda)</td></tr>' +
           '<tr><th>Distrito</th><td>Benjamín Aceval</td></tr>' +
           '<tr><th>Departamento</th><td>Pdte. Hayes</td></tr>' +
-          '<tr><th>Propietaria</th><td>Edelio Cabrera Cabrera</td></tr>' +
+          '<tr><th>Propietaria</th><td>COSTA LINDA Cabrera Cabrera</td></tr>' +
           '</table>'
         );
       }
@@ -446,7 +446,7 @@
 
     var layerFraccionPunto = L.geoJSON(json_FRACCIONcopiar_4, {
       pointToLayer: function(feature, latlng) {
-        var texto = feature.properties['FRACCIONES_Código - Nombre de Fracción'] || '1 - EDELIO';
+        var texto = feature.properties['FRACCIONES_Código - Nombre de Fracción'] || '1 - COSTA LINDA';
         return L.marker(latlng, {
           icon: L.divIcon({
             className: '',
@@ -558,7 +558,7 @@
           '<div class="popup-header">Lote ' + p.Lote + ' — Manzana ' + p.Manzana + ' (ID: ' + p.ID + ')</div>' +
           '<table class="popup-table">' +
           '<tr><th>ID</th><td><b>' + p.ID + '</b></td></tr>' +
-          '<tr><th>Fracción</th><td>1 - EDELIO</td></tr>' +
+          '<tr><th>Fracción</th><td>1 - COSTA LINDA</td></tr>' +
           '<tr><th>Manzana</th><td>' + p.Manzana + '</td></tr>' +
           '<tr><th>Lote</th><td>' + p.Lote + '</td></tr>' +
           '<tr><th>Superficie Plano</th><td>' + p.Superficie + ' m² (Tabla: ' + (p.Superficie_Tabla || '-') + ' m²)</td></tr>' +
@@ -654,7 +654,7 @@
     actualizarClaseZoom();
 
     var datalist = document.getElementById('searchSuggestions');
-    ['1 - EDELIO', 'MANZANA 1', 'MANZANA 2'].forEach(function(item) {
+    ['1 - COSTA LINDA', 'MANZANA 1', 'MANZANA 2'].forEach(function(item) {
       var opt = document.createElement('option');
       opt.value = item;
       datalist.appendChild(opt);
@@ -670,7 +670,7 @@
       var q = document.getElementById('searchInput').value.trim().toUpperCase();
       if (!q) return;
 
-      if (q.indexOf('EDELIO') !== -1 || q === '1') {
+      if (q.indexOf('COSTA LINDA') !== -1 || q === '1') {
         map.fitBounds(layerFraccionGeneral.getBounds(), { padding: [30, 30] });
         return;
       }
